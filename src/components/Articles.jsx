@@ -17,11 +17,11 @@ const Articles = () => {
       <ul>
         {articles.map((article) => {
           return (
-            <Link to={`/articles/${article.article_id}`}>
-              <li key={article.article_id} className="article-card">
+            <li key={article.article_id} className="article-card">
+              <Link to={`/articles/${article.article_id}`}>
                 <ArticleCard article={article} />
-              </li>
-            </Link>
+              </Link>
+            </li>
           );
         })}
       </ul>

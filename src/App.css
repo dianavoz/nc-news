@@ -22,10 +22,7 @@ li{
 a{
   text-decoration: none;
 }
-header{
-  text-align: left;
-  margin-left: 55px;
-}
+
 nav a{
   margin: 5px;
 }
@@ -39,17 +36,21 @@ p, span{
 }
 
 span{
-  margin: 5px;
+  margin: 10px;
 }
 
 @media (min-width: 760px) {
-  ul{
-    display: flex;
+  ul li{
+    display: inline-flex;
     flex-wrap: wrap;
   }
   .article-card{
     width: 22%;
   
+  }
+  header{
+    text-align: left;
+    margin-left: 55px;
   }
 }
 
