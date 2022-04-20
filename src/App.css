@@ -9,8 +9,6 @@
   padding: 1rem 2rem;
 }
 
-
-
 .article-card{
   width: 180px;
 
@@ -19,24 +17,35 @@
 li{
   list-style: none;
 }
-a{
-  text-decoration: none;
-}
 
-nav a{
-  margin: 5px;
+a{
+  
+  text-decoration: none;
+  margin:5px;
+  font-size: small;
 }
 
 h3{
-  /* font-weight: 500!important; */
   color: #222;
 }
+
+h1{
+  font-size: large;
+}
+
+h2{
+  font-size: small;
+}
+
 p, span{
   color: #5a5a5a
 }
 
 span{
   margin: 10px;
+}
+.topics{
+  display: inline;
 }
 
 @media (min-width: 760px) {
@@ -45,13 +54,25 @@ span{
     flex-wrap: wrap;
   }
   .article-card{
-    width: 22%;
+    width: 20%;
+    height: 290px;
   
   }
   header{
     text-align: left;
     margin-left: 55px;
+     color: #bb0303;
+    /* color: #a09c9c; */
   }
+  .topics a{
+    font-size: large;
+  }
+  main h2{
+    font-size: medium;
+   font-weight: 800;
+    color: #5a5a5a;
+  }
+  
 }
 
 
