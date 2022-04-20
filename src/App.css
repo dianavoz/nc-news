@@ -1,4 +1,57 @@
 .App {
   text-align: center;
+  font-family: ReithSerif,Helvetica,Arial,serif!important;
 }
+
+.article-card{
+  background-color: #efefef;
+  margin: 2%;
+  padding: 1rem 2rem;
+}
+
+
+
+.article-card{
+  width: 180px;
+
+}
+
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+nav a{
+  margin: 5px;
+}
+
+h3{
+  /* font-weight: 500!important; */
+  color: #222;
+}
+p, span{
+  color: #5a5a5a
+}
+
+span{
+  margin: 10px;
+}
+
+@media (min-width: 760px) {
+  ul li{
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+  .article-card{
+    width: 22%;
+  
+  }
+  header{
+    text-align: left;
+    margin-left: 55px;
+  }
+}
+
 
