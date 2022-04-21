@@ -15,7 +15,11 @@ const Topics = () => {
     <nav className="nav">
       <Link to="/">articles</Link>
       {topics.map(({ slug }) => {
-        return <Link to={`/topics/${slug}`}>{slug}</Link>;
+        return (
+          <Link key={slug} to={`/topics/${slug}`}>
+            {slug}
+          </Link>
+        );
       })}
     </nav>
   );
