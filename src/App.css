@@ -24,6 +24,15 @@ a{
   text-decoration: none;
   margin:5px;
   font-size: small;
+  text-transform: uppercase;
+ font-weight: bold;
+ color: #aa871e;
+}
+main h2{
+  color: #aa871e;
+  
+  font-size: small;
+
 }
 
 h3{
@@ -58,6 +67,20 @@ span{
 
 }
 
+.vote{
+  margin: auto;
+  
+}
+.btn-vote{
+  display: inline;
+  border: none;
+  background: none;
+  cursor: pointer;
+ 
+}
+
+
+
 
 @media (min-width: 760px) {
   ul li{
@@ -66,7 +89,8 @@ span{
   }
   .article-card{
     width: 20%;
-    height: 290px;
+    height: 350px;
+    
   }
   header{
     text-align: left;
@@ -79,7 +103,7 @@ span{
   main h2{
     font-size: medium;
    font-weight: 800;
-    color: #5a5a5a;
+   
   }
   .text-body{
     margin:20px auto;

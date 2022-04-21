@@ -14,21 +14,18 @@ const ArticleVote = ({ article_id, vote }) => {
       setErr("Sorry, something went wrong!");
     });
   };
-  const decrementVoteCount = () => {
-    setErr(null);
-    setVotes((currentVote) => currentVote - 1);
-    patchArticleVote(article_id, vote - 1).catch(() => {
-      setVotes((currentVote) => currentVote - 2);
-      setErr("Sorry, something went wrong!");
-    });
-  };
 
   if (err) return <p>err</p>;
   return (
     <div className="vote">
-      <p>Votes:{vote + votes}</p>
-      <button onClick={incrementVoteCount}>Vote +</button>
-      <button onClick={decrementVoteCount}>Vote - </button>
+      <span>{vote + votes}</span>
+      <button
+        className="btn-vote"
+        onClick={incrementVoteCount}
+        disabled={votes}
+      >
+        &#128077;
+      </button>
     </div>
   );
 };
