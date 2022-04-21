@@ -19,7 +19,6 @@ const ArticleById = () => {
   if (isLoading) return <h3>Loading...</h3>;
   return (
     <>
-      <h1>Article id: {article_id}</h1>
       <ArticleCard article={article} />
     </>
   );
