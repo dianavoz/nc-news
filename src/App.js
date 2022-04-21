@@ -3,16 +3,17 @@ import "./App.css";
 import Articles from "./components/Articles";
 import Header from "./components/Header";
 import ArticleById from "./components/ArticleById";
-import NavBar from "./components/NavBar";
+import Topics from "./components/Topics";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <NavBar />
+      <Topics />
       <Routes>
-        <Route path="/articles" element={<Articles />}></Route>
+        <Route path="/" element={<Articles />}></Route>
         <Route path="/articles/:article_id" element={<ArticleById />}></Route>
+        <Route path="/topics/:topic" element={<Articles />}></Route>
       </Routes>
     </div>
   );
