@@ -16,22 +16,25 @@ const Articles = () => {
     });
   }, [topic]);
 
-  if (isLoading) return <h3>Loading...</h3>;
-
   return (
     <main>
       <h2>{topic}</h2>
-      <ul>
-        {articles.map((article) => {
-          return (
-            <li key={article.article_id} className="article-card">
-              <Link to={`/articles/${article.article_id}`}>
-                <ArticleCard article={article} />
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+
+      {isLoading ? (
+        <h3>Loading...</h3>
+      ) : (
+        <ul>
+          {articles.map((article) => {
+            return (
+              <li key={article.article_id} className="article-card">
+                <Link to={`/articles/${article.article_id}`}>
+                  <ArticleCard article={article} />
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </main>
   );
 };

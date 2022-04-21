@@ -14,6 +14,7 @@
 
 }
 
+
 li{
   list-style: none;
 }
@@ -43,6 +44,18 @@ p, span{
 
 span{
   margin: 10px;
+  padding: 1%;
+ 
+}
+.author{
+  text-align: left;
+  margin-left: 15%;
+  color: #3b3b3b;
+}
+.text-body{
+  padding: 2% 5%;
+  text-align: left;
+
 }
 
 
@@ -54,7 +67,6 @@ span{
   .article-card{
     width: 20%;
     height: 290px;
-  
   }
   header{
     text-align: left;
@@ -69,6 +81,12 @@ span{
    font-weight: 800;
     color: #5a5a5a;
   }
+  .text-body{
+    margin:20px auto;
+    width: 70%;
+    line-height: 1.25rem;
+  }
+ 
   
 }
 
