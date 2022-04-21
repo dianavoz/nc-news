@@ -16,11 +16,8 @@ const ArticleById = () => {
     });
   }, [article_id]);
 
-  if (isLoading) return <h3>Loading...</h3>;
   return (
-    <>
-      <ArticleCard article={article} />
-    </>
+    <>{isLoading ? <h3>Loading...</h3> : <ArticleCard article={article} />}</>
   );
 };
 export default ArticleById;
