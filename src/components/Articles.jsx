@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api.js";
 import ArticleCard from "./ArticleCard";
+
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import ArticleVote from "./ArticleVote";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   const { topic } = useParams();
 
   useEffect(() => {
@@ -25,11 +28,16 @@ const Articles = () => {
       ) : (
         <ul>
           {articles.map((article) => {
+            console.log(article);
             return (
               <li key={article.article_id} className="article-card">
                 <Link to={`/articles/${article.article_id}`}>
                   <ArticleCard article={article} />
                 </Link>
+                <ArticleVote
+                  article_id={article.article_id}
+                  vote={article.votes}
+                />
               </li>
             );
           })}
