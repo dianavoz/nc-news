@@ -12,15 +12,12 @@ const Topics = () => {
   }, []);
 
   return (
-    <ul>
+    <nav className="nav">
+      <Link to="/">articles</Link>
       {topics.map(({ slug }) => {
-        return (
-          <li key={slug} className="topics">
-            <Link to={`/topics/${slug}`}>{slug}</Link>
-          </li>
-        );
+        return <Link to={`/topics/${slug}`}>{slug}</Link>;
       })}
-    </ul>
+    </nav>
   );
 };
 export default Topics;

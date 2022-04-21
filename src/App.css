@@ -44,9 +44,7 @@ p, span{
 span{
   margin: 10px;
 }
-.topics{
-  display: inline;
-}
+
 
 @media (min-width: 760px) {
   ul li{
@@ -62,7 +60,6 @@ span{
     text-align: left;
     margin-left: 55px;
      color: #bb0303;
-    /* color: #a09c9c; */
   }
   .topics a{
     font-size: large;
