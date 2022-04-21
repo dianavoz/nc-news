@@ -28,7 +28,6 @@ const Articles = () => {
       ) : (
         <ul>
           {articles.map((article) => {
-            console.log(article);
             return (
               <li key={article.article_id} className="article-card">
                 <Link to={`/articles/${article.article_id}`}>
