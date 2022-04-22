@@ -4,6 +4,7 @@ import { getArticleById } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import ArticleVote from "./ArticleVote";
 import Comments from "./Comments";
+import ComponentChildren from "./ComponentChildren";
 
 const ArticleById = () => {
   const [article, setArticle] = useState([]);
@@ -26,21 +27,13 @@ const ArticleById = () => {
         <>
           <ArticleCard article={article} />
           <ArticleVote article_id={article.article_id} vote={article.votes} />
-
-          {/* <ComponentWithChildren> */}
-          <Comments article_id={article.article_id} />
-          {/* </ComponentWithChildren> */}
+          <h2>Comments</h2>
+          <ComponentChildren>
+            <Comments article_id={article.article_id} />
+          </ComponentChildren>
         </>
       )}
     </>
   );
-  // function ComponentWithChildren({ children }) {
-  //   <div>
-  //     <h3>Comments</h3>
-  //     return <button>Show Comments</button>
-  //   </div>;
-
-  //   console.log(children, "children");
-  // }
 };
 export default ArticleById;

@@ -3,10 +3,8 @@ import { getComments } from "../utils/api";
 import CommentsCard from "./CommentsCard";
 
 const Comments = ({ article_id }) => {
-  console.log(article_id);
   const [comments, setComment] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  console.log(comments);
 
   useEffect(() => {
     getComments(article_id).then((data) => {
