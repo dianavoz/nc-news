@@ -8,6 +8,7 @@ import Expandable from "./Expandable";
 
 const ArticleById = () => {
   const [article, setArticle] = useState([]);
+
   const [isLoading, setIsLoading] = useState(true);
 
   const { article_id } = useParams();
@@ -28,7 +29,6 @@ const ArticleById = () => {
           <ArticleCard article={article} />
           <ArticleVote article_id={article.article_id} vote={article.votes} />
           <h2>Comments</h2>
-
           <Expandable>
             <Comments article_id={article.article_id} />
           </Expandable>
