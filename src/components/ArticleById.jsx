@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { getArticleById } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import ArticleVote from "./ArticleVote";
+import Comments from "./Comments";
+import Expandable from "./Expandable";
 
 const ArticleById = () => {
   const [article, setArticle] = useState([]);
@@ -25,6 +27,11 @@ const ArticleById = () => {
         <>
           <ArticleCard article={article} />
           <ArticleVote article_id={article.article_id} vote={article.votes} />
+          <h2>Comments</h2>
+
+          <Expandable>
+            <Comments article_id={article.article_id} />
+          </Expandable>
         </>
       )}
     </>
