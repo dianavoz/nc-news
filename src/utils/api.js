@@ -10,11 +10,13 @@ export const getTopicsApi = () => {
   });
 };
 
-export const getArticles = (topic) => {
+export const getArticles = (topic, sort_by, order) => {
   return articlesApi
     .get("/articles", {
       params: {
         topic,
+        sort_by,
+        order,
       },
     })
     .then(({ data }) => {
@@ -27,3 +29,17 @@ export const getArticleById = (article_id) => {
     return data.article;
   });
 };
+
+export const patchArticleVote = (article_id, votes) => {
+  return articlesApi.patch(`/articles/${article_id}`, {
+    inc_votes: 1,
+  });
+};
+
+// export const getComments = (article_id) => {
+//   return articlesApi
+//     .get(`/articles/${article_id}/comments`)
+//     .then(({ data }) => {
+//       return data.comments;
+//     });
+// };
