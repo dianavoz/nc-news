@@ -36,10 +36,10 @@ export const patchArticleVote = (article_id, votes) => {
   });
 };
 
-// export const getComments = (article_id) => {
-//   return articlesApi
-//     .get(`/articles/${article_id}/comments`)
-//     .then(({ data }) => {
-//       return data.comments;
-//     });
-// };
+export const getComments = (article_id) => {
+  return articlesApi
+    .get(`/articles/${article_id}/comments`)
+    .then(({ data }) => {
+      return data.comments;
+    });
+};

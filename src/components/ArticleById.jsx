@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getArticleById } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import ArticleVote from "./ArticleVote";
+import Comments from "./Comments";
 
 const ArticleById = () => {
   const [article, setArticle] = useState([]);
@@ -25,9 +26,21 @@ const ArticleById = () => {
         <>
           <ArticleCard article={article} />
           <ArticleVote article_id={article.article_id} vote={article.votes} />
+
+          {/* <ComponentWithChildren> */}
+          <Comments article_id={article.article_id} />
+          {/* </ComponentWithChildren> */}
         </>
       )}
     </>
   );
+  // function ComponentWithChildren({ children }) {
+  //   <div>
+  //     <h3>Comments</h3>
+  //     return <button>Show Comments</button>
+  //   </div>;
+
+  //   console.log(children, "children");
+  // }
 };
 export default ArticleById;
