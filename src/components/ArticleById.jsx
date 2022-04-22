@@ -4,7 +4,7 @@ import { getArticleById } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import ArticleVote from "./ArticleVote";
 import Comments from "./Comments";
-import ComponentChildren from "./ComponentChildren";
+import Expandable from "./Expandable";
 
 const ArticleById = () => {
   const [article, setArticle] = useState([]);
@@ -28,9 +28,10 @@ const ArticleById = () => {
           <ArticleCard article={article} />
           <ArticleVote article_id={article.article_id} vote={article.votes} />
           <h2>Comments</h2>
-          <ComponentChildren>
+
+          <Expandable>
             <Comments article_id={article.article_id} />
-          </ComponentChildren>
+          </Expandable>
         </>
       )}
     </>

@@ -13,8 +13,6 @@ const Comments = ({ article_id }) => {
     });
   }, [article_id]);
 
-  if (isLoading) return <h3>Loding...</h3>;
-
   return (
     <>
       {isLoading ? (
