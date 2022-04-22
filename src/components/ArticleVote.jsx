@@ -15,7 +15,7 @@ const ArticleVote = ({ article_id, vote }) => {
     });
   };
 
-  if (err) return <p>err</p>;
+  if (err) return <p>{err}</p>;
   return (
     <div className="vote">
       <span>{vote + votes}</span>
