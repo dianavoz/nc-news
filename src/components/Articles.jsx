@@ -12,10 +12,9 @@ const Articles = () => {
 
   const { topic } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams.get("selected"));
 
-  const [sort, setSort] = useState();
-  const [order, setOrder] = useState();
+  const sort = searchParams.get("sort_by");
+  const order = searchParams.get("order");
 
   useEffect(() => {
     getArticles(topic, sort, order).then((data) => {
@@ -33,7 +32,6 @@ const Articles = () => {
         onChange={(e) => {
           const targetValue = { sort_by: e.target.value, order: "desc" };
           setSearchParams(targetValue);
-          setSort(targetValue.sort_by);
         }}
       >
         <option value="created_at">date</option>
@@ -46,7 +44,6 @@ const Articles = () => {
         onChange={(e) => {
           const targetValue = { sort_by: "created_at", order: e.target.value };
           setSearchParams(targetValue);
-          setOrder(targetValue.order);
         }}
       >
         <option value="desc">desc</option>
