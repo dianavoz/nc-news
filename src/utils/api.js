@@ -43,3 +43,13 @@ export const getComments = (article_id) => {
       return data.comments;
     });
 };
+export const postComment = (article_id, newComment) => {
+  return articlesApi
+    .post(`/articles/${article_id}/comments`, {
+      username: "tickle122",
+      body: newComment,
+    })
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
