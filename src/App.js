@@ -1,21 +1,41 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Articles from "./components/Articles";
-import Header from "./components/Header";
-import ArticleById from "./components/ArticleById";
-import Topics from "./components/Topics";
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+
+//components
+import Articles from './components/Articles';
+import Header from './components/Header';
+import ArticleById from './components/ArticleById';
+import Users from './components/Users';
+
+//MUI styling
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { Container } from '@mui/material';
+
+//font family in MUI
+const theme = createTheme({
+  typography: {
+    fontFamily: ['Merriweather', 'Georgia', 'serif'].join(','),
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Topics />
-      <Routes>
-        <Route path="/" element={<Articles />}></Route>
-        <Route path="/articles/:article_id" element={<ArticleById />}></Route>
-        <Route path="/topics/:topic" element={<Articles />}></Route>
-      </Routes>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className='App'>
+        <Header />
+        <Container>
+          <Routes>
+            <Route path='/articles' element={<Articles />}></Route>
+            <Route
+              path='/articles/:article_id'
+              element={<ArticleById />}
+            ></Route>
+            <Route path='/topics/:topic' element={<Articles />}></Route>
+            <Route path='/' element={<Users />}></Route>
+          </Routes>
+        </Container>
+      </div>
+    </ThemeProvider>
   );
 }
 

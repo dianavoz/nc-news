@@ -4,6 +4,12 @@ const articlesApi = axios.create({
   baseURL: "https://api-backend-nc-news.herokuapp.com/api",
 });
 
+export const getUsers = () => {
+  return articlesApi.get("/users").then(({ data }) => {
+    return data.users;
+  });
+};
+
 export const getTopicsApi = () => {
   return articlesApi.get("/topics").then(({ data }) => {
     return data.topics;
@@ -43,10 +49,10 @@ export const getComments = (article_id) => {
       return data.comments;
     });
 };
-export const postComment = (article_id, newComment) => {
+export const postComment = (article_id, newComment, isLoggedIn) => {
   return articlesApi
     .post(`/articles/${article_id}/comments`, {
-      username: "tickle122",
+      username: isLoggedIn.username,
       body: newComment,
     })
     .then(({ data }) => {

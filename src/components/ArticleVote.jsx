@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState } from 'react';
+import { patchArticleVote } from '../utils/api';
 
-import { patchArticleVote } from "../utils/api";
+import { ThumbUpOffAlt } from '@mui/icons-material';
 
 const ArticleVote = ({ article_id, vote }) => {
   const [votes, setVotes] = useState(0);
@@ -11,21 +12,23 @@ const ArticleVote = ({ article_id, vote }) => {
     setVotes((currentVote) => currentVote + 1);
     patchArticleVote(article_id, vote + 1).catch(() => {
       setVotes((currentVote) => currentVote - 1);
-      setErr("Sorry, something went wrong!");
+      setErr('Sorry, something went wrong!');
     });
   };
 
   if (err) return <p>{err}</p>;
+
   return (
-    <div className="vote">
-      <span>{vote + votes}</span>
+    <div className='vote'>
       <button
-        className="btn-vote"
+        variant='text'
+        className='btn-vote'
         onClick={incrementVoteCount}
         disabled={votes}
       >
-        &#128077;
+        <ThumbUpOffAlt fontSize='large' />
       </button>
+      <span>{vote + votes}</span>
     </div>
   );
 };
