@@ -1,50 +1,131 @@
 * {
-  font-size: 20px;
+	font-size: 20px;
 }
+
 .App {
-  text-align: center;
+	text-align: center;
 }
+
 body {
-  background-color: #e7ebf0;
+	background-color: #e7ebf0;
 }
+
 h2 {
-  font-size: 1.5em;
-  color: #333;
+	font-size: 1.5em;
+	color: #333;
 }
+
 h1 {
-  font-size: 2em;
+	font-size: 2em;
 }
+
 li {
-  list-style: none;
+	list-style: none;
 }
+
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
-.users-list li{
-  margin-bottom: 60px;;
+
+.users-list li {
+	margin-bottom: 60px;
+	;
 }
+
 header {
-  border-bottom: 0.5px solid #dde4ed;
-  display: flex;
-  justify-content: center;
+	border-bottom: 1px solid #f8f6f6;
+	display: flex;
+	justify-content: center;
+	padding-bottom: 20px;
 }
+
 .card-form-comment {
-  text-align: right;
+	text-align: right;
 }
+
 .card-form-comment button {
-  margin: 2px;
+	margin: 2px;
 }
+
 .vote {
-  text-align: left;
+	text-align: left;
 }
+
 .vote button {
-  border: none;
-  background: none;
-  cursor: pointer;
+	border: none;
+	background: none;
+	cursor: pointer;
 }
+
 .comment {
-  margin-bottom: 60px;
+	margin-bottom: 60px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #f8f6f6;
 }
-.card-form-comment button{
-  cursor: pointer;
+
+.comments-span-by {
+	font-weight: bold;
+}
+
+.comment-count {
+	text-align: left;
+	padding-bottom: 50px;
+}
+
+.comment-count-span {
+	display: inline-block;
+	margin-left: 0.3em;
+	color: #FF0000;
+	font-size: x-large;
+}
+
+.card-form-comment button {
+	cursor: pointer;
+}
+
+.card-topic {
+	display: inline-block;
+	color: #1976d2;
+	font-weight: lighter;
+	padding: 0.15em 0.5em;
+	border-radius: 1em;
+	border: 1px solid #1976d2;
+
+	margin-left: 1em;
+}
+
+.select-topic-span {
+
+	color: #999;
+	text-transform: uppercase;
+
+	padding: 15px 47px;
+	border: 1px solid #999;
+
+}
+
+p.select-topic-p {
+
+	padding-bottom: 8px;
+
+
+}
+
+p.select-topic-span {
+	text-align: right;
+}
+
+.card-title {
+	padding: 20px;
+}
+
+.card-sort {
+	color: #999;
+	font-weight: bolder;
+}
+
+.card-order {
+	color: #999;
+	font-weight: bolder;
+
 }

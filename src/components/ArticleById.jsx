@@ -33,11 +33,14 @@ const ArticleById = () => {
         </LoadingButton>
       ) : (
         <>
-          <ArticleCard article={article} />
+          <ArticleCard article={article} article_id={article_id} />
           <ArticleVote article_id={article.article_id} vote={article.votes} />
 
           <Expandable>
-            <Comments article_id={article.article_id} />
+            <Comments
+              article_id={article.article_id}
+              comment_count={article.comment_count}
+            />
           </Expandable>
         </>
       )}

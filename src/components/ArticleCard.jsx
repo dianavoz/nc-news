@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 
-const Article = ({ article }) => {
+const Article = ({ article, article_id }) => {
   return (
     <>
       <Typography
@@ -21,12 +21,17 @@ const Article = ({ article }) => {
         </p>
         <p>
           <span style={{ color: '#999', fontWeight: 'bold' }}>
-            {article.created_at.slice(0, 10)} | {article.topic}
+            {article.created_at.slice(0, 10)}{' '}
+            <span className='card-topic'>{article.topic}</span>
           </span>
         </p>
         {article.body && <p className='text-body'>{article.body}</p>}
-        <p>Comments: {article.comment_count}</p>
-        <p>Votes: {article.votes}</p>
+        {!article_id && (
+          <>
+            <p>Comments: {article.comment_count}</p>
+            <p>Votes: {article.votes}</p>
+          </>
+        )}
       </Typography>
     </>
   );

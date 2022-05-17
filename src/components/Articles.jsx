@@ -38,7 +38,7 @@ const Articles = () => {
 
   return (
     <main>
-      <h1>NC News</h1>
+      <h1 className='card-title'>NC News</h1>
       <Select setSearchParams={setSearchParams} topic={topic} />
 
       {isLoading ? (
