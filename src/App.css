@@ -1,115 +1,50 @@
+* {
+  font-size: 20px;
+}
 .App {
   text-align: center;
-  font-family: ReithSerif,Helvetica,Arial,serif!important;
 }
-
-.article-card{
-  background-color: #f5f3f3;
-  margin: 2%;
-  padding: 1rem 2rem;
+body {
+  background-color: #e7ebf0;
 }
-
-.article-card{
-  width: 180px;
+h2 {
+  font-size: 1.5em;
+  color: #333;
 }
-
-
-li{
+h1 {
+  font-size: 2em;
+}
+li {
   list-style: none;
 }
-
-a{
-  
+a {
   text-decoration: none;
-  margin:5px;
-  font-size: small;
-  text-transform: uppercase;
- font-weight: bold;
- color: #bb0303;
 }
-
-main h2{
-  color: #ac5c5c;
-  font-size: small;
+.users-list li{
+  margin-bottom: 60px;;
 }
-
-h3{
-  color: #222;
+header {
+  border-bottom: 0.5px solid #dde4ed;
+  display: flex;
+  justify-content: center;
 }
-
-h1{
-  font-size: large;
+.card-form-comment {
+  text-align: right;
 }
-
-h2{
-  font-size: small;
+.card-form-comment button {
+  margin: 2px;
 }
-
-p, span{
-  color: #5a5a5a;
-}
-
-span{
-  margin: 10px;
-  padding: 1%;
- 
-}
-.author{
+.vote {
   text-align: left;
-  margin-left: 15%;
-  color: #3b3b3b;
 }
-.text-body{
-  padding: 2% 5%;
-  text-align: left;
-
-}
-
-.vote{
-  margin: auto;
-  
-}
-.btn-vote{
-  display: inline;
+.vote button {
   border: none;
   background: none;
   cursor: pointer;
- 
 }
-
-
-
-
-
-
-@media (min-width: 760px) {
-  ul li{
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
-  .article-card{
-    width: 20%;
-    height: 350px;
-    
-  }
-  header{
-    text-align: left;
-    margin-left: 55px;
-     color: #bb0303;
-  }
-  .topics a{
-    font-size: large;
-  }
-  main h2{
-    font-size: medium;
-   font-weight: 800;
-   
-  }
-  .text-body{
-    margin:20px auto;
-    width: 70%;
-    line-height: 1.25rem;
-  }
+.comment {
+  margin-bottom: 60px;
 }
-
-
+.card-form-comment button{
+  cursor: pointer;
+}

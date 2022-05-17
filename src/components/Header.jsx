@@ -1,7 +1,9 @@
+import NavBar from './NavBar';
+
 const Header = () => {
   return (
-    <header>
-      <h1>NC News</h1>
+    <header className='news-header'>
+      <NavBar />
     </header>
   );
 };

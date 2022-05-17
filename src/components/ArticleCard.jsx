@@ -1,12 +1,33 @@
+import { Typography } from '@mui/material';
+
 const Article = ({ article }) => {
   return (
     <>
-      <h3>{article.title}</h3>
-      <span>{article.topic}</span>
-      <span>Date: {article.created_at.slice(0, 10)}</span>
+      <Typography
+        gutterBottom
+        variant='h2'
+        component='div'
+        fontSize='1.2rem'
+        lineHeight={1.15}
+        textAlign='left'
+      >
+        <h2 className='article-card title'>{article.title}</h2>
+      </Typography>
 
-      {article.body && <p className="text-body">{article.body}</p>}
-      <p className="author">Written By:{article.author}</p>
+      <Typography variant='body2' color='text.secondary' textAlign='left'>
+        <p className='article-card author'>
+          <span style={{ fontWeight: 'bold', marginRight: 3 }}>by</span>
+          {article.author}
+        </p>
+        <p>
+          <span style={{ color: '#999', fontWeight: 'bold' }}>
+            {article.created_at.slice(0, 10)} | {article.topic}
+          </span>
+        </p>
+        {article.body && <p className='text-body'>{article.body}</p>}
+        <p>Comments: {article.comment_count}</p>
+        <p>Votes: {article.votes}</p>
+      </Typography>
     </>
   );
 };

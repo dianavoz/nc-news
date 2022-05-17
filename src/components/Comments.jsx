@@ -1,11 +1,21 @@
-import { useEffect, useState } from "react";
-import { getComments } from "../utils/api";
-import CommentsCard from "./CommentsCard";
-import PostComment from "./PostComment";
+import { useEffect, useState, useContext } from 'react';
+import { UserContext } from '../context/User';
+
+import { getComments } from '../utils/api';
+
+//components
+import CommentsCard from './CommentsCard';
+import PostComment from './PostComment';
+import RemoveComment from './RemoveComment';
+
+//MUI styling
+import LoadingButton from '@mui/lab/LoadingButton';
 
 const Comments = ({ article_id }) => {
-  const [comments, setComment] = useState();
+  const [comments, setComment] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const { isLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
     getComments(article_id).then((data) => {
@@ -18,14 +28,25 @@ const Comments = ({ article_id }) => {
     <>
       <PostComment article_id={article_id} setComment={setComment} />
       {isLoading ? (
-        <h3>Loading...</h3>
+        <LoadingButton loading loadingIndicator='Loading...' variant='text'>
+          Loading...
+        </LoadingButton>
       ) : (
         <ul>
           {comments.map((comment) => {
             return (
-              <li key={comment.comment_id}>
-                <CommentsCard comment={comment} setComment={setComment} />
-              </li>
+              <div className='comment'>
+                <li key={comment.comment_id}>
+                  <CommentsCard comment={comment} />
+
+                  {isLoggedIn.name === comment.author && (
+                    <RemoveComment
+                      comment_id={comment.comment_id}
+                      setComment={setComment}
+                    />
+                  )}
+                </li>
+              </div>
             );
           })}
         </ul>
