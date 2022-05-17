@@ -11,7 +11,7 @@ import RemoveComment from './RemoveComment';
 //MUI styling
 import LoadingButton from '@mui/lab/LoadingButton';
 
-const Comments = ({ article_id }) => {
+const Comments = ({ article_id, comment_count }) => {
   const [comments, setComment] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -26,6 +26,9 @@ const Comments = ({ article_id }) => {
 
   return (
     <>
+      <h2 className='comment-count'>
+        Comments <span className='comment-count-span'>{comment_count}</span>
+      </h2>
       <PostComment article_id={article_id} setComment={setComment} />
       {isLoading ? (
         <LoadingButton loading loadingIndicator='Loading...' variant='text'>

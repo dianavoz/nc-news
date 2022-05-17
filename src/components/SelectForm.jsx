@@ -3,8 +3,15 @@ import { InputLabel, FormControl, Select, MenuItem } from '@mui/material';
 const SelectForm = ({ setSearchParams, topic }) => {
   return (
     <div className='card-select'>
-      <FormControl sx={{ m: 1, minWidth: 80 }}>
-        <InputLabel id='select-autowidth-label'>sort</InputLabel>
+      {topic && (
+        <p className='select-topic-p'>
+          <span className='select-topic-span'>{topic}</span>
+        </p>
+      )}
+      <FormControl variant='standard' sx={{ m: 1, minWidth: 80 }}>
+        <InputLabel id='select-autowidth-label'>
+          <span className='card-sort'>sort</span>
+        </InputLabel>
 
         <Select
           labelId='select-autowidth-label'
@@ -26,8 +33,10 @@ const SelectForm = ({ setSearchParams, topic }) => {
         </Select>
       </FormControl>
 
-      <FormControl sx={{ m: 1, minWidth: 80 }}>
-        <InputLabel id='select-autowidth-label'>order</InputLabel>
+      <FormControl variant='standard' sx={{ m: 1, minWidth: 80 }}>
+        <InputLabel id='select-standard-label'>
+          <span className='card-order'>order</span>
+        </InputLabel>
 
         <Select
           labelId='select-autowidth-label'
@@ -40,7 +49,7 @@ const SelectForm = ({ setSearchParams, topic }) => {
             setSearchParams(targetValue);
           }}
           autoWidth
-          label='order '
+          label='order'
         >
           <MenuItem value=''>
             <em>none</em>
@@ -49,8 +58,6 @@ const SelectForm = ({ setSearchParams, topic }) => {
           <MenuItem value='asc'>asc</MenuItem>
         </Select>
       </FormControl>
-
-      <h2>{topic}</h2>
     </div>
   );
 };
