@@ -7,10 +7,10 @@
 
 ###  WHAT DOES IT DO?
 
-The project is a social news aggregation, web content rating, and discussion website.
+<p>The project is a social news aggregation, web content rating, and discussion website.</p>
 
-NC News has articles which are divided into topics. Each article has user curated ratings and can be up voted using the API.
-Users can also add comments about an article if they are logged in.
+<p>NC News has articles which are divided into topics. Each article has user curated ratings and can be up voted using the API.<br>
+   Users can also add comments about an article if they are logged in.</p>
 
 
 <hr>
