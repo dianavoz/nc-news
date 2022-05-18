@@ -1,21 +1,58 @@
-# Getting Started with Create React App
+# NC News 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## SEE THE APP HERE
+ <<<<< To be added >>>>>
 
-## Available Scripts
+ <hr>
 
-In the project directory, you can run:
+##  WHAT DOES IT DO?
 
-### `npm start`
+The project is a social news aggregation, web content rating, and discussion website.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+NC News has articles which are divided into topics. Each article has user curated ratings and can be up voted using the API.
+Users can also add comments about an article if they are logged in.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+<hr>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## NC NEWS API used in this project
+
+GitHub 
+
+```
+https://github.com/dianavoz/news-api
+```
+
+Heroku API
+
+```
+https://api-backend-nc-news.herokuapp.com/api
+```
+
+<hr>
+
+###  TECHNOLOGIES AND DEPENDENCIES
+
+```
+Create React App
+Material UI
+axios
+```
+
+<hr>
+
+### Get Started
+
+CLONE THE REPO
+
+```
+git clone https://github.com/dianavoz/nc-news.git
+cd <my folder>
+```
+
+INSTALL DEPENDENCIES
+
+```
+npm install
+```
 
