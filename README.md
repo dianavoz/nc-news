@@ -1,11 +1,11 @@
 # NC News 
 
-## SEE THE APP HERE
+### SEE THE APP HERE
  <<<<< To be added >>>>>
 
  <hr>
 
-##  WHAT DOES IT DO?
+###  WHAT DOES IT DO?
 
 The project is a social news aggregation, web content rating, and discussion website.
 
@@ -15,7 +15,7 @@ Users can also add comments about an article if they are logged in.
 
 <hr>
 
-## NC NEWS API used in this project
+### NC NEWS API used in this project
 
 GitHub 
 
