@@ -15,7 +15,7 @@ Users can also add comments about an article if they are logged in.
 
 <hr>
 
-### NC NEWS API used in this project
+### API USED IN THIS PROJECT
 
 ```
 https://github.com/dianavoz/news-api
