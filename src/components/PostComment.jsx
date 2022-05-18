@@ -5,17 +5,16 @@ import { postComment } from '../utils/api';
 
 import { TextField } from '@mui/material';
 
-const PostComment = ({ article_id, setComment }) => {
+const PostComment = ({ article_id, setComments }) => {
   const { isLoggedIn } = useContext(UserContext);
 
-  const [newComment, setNewComment] = useState('');
+  const [newComment, setNewComment] = useState([]);
 
   const handleSubmit = (e) => {
-    console.log(e);
     e.preventDefault();
 
     postComment(article_id, newComment, isLoggedIn).then((postedComment) => {
-      setComment((currentComments) => {
+      setComments((currentComments) => {
         return [postedComment, ...currentComments];
       });
     });

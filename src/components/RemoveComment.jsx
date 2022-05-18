@@ -5,21 +5,21 @@ import { deleteComment } from '../utils/api';
 //styling
 import { Button } from '@mui/material';
 
-const RemoveComment = ({ comment_id, setComment }) => {
+const RemoveComment = ({ comment_id, setComments }) => {
   const [err, setErr] = useState(null);
 
   const removeComment = () => {
     setErr(null);
 
-    setComment((currentComment) => {
+    deleteComment(comment_id).catch((err) => {
+      setErr('Sorry, something went wrong!');
+    });
+
+    setComments((currentComment) => {
       const commentsCopy = [...currentComment];
       return commentsCopy.filter(
         (comment) => comment.comment_id !== comment_id
       );
-    });
-
-    deleteComment(comment_id).catch((err) => {
-      setErr('Sorry, something went wrong!');
     });
   };
 
@@ -38,3 +38,4 @@ const RemoveComment = ({ comment_id, setComment }) => {
   );
 };
 export default RemoveComment;
+////////////////////////////////////////////////

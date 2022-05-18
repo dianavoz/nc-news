@@ -11,15 +11,15 @@ import RemoveComment from './RemoveComment';
 //MUI styling
 import LoadingButton from '@mui/lab/LoadingButton';
 
-const Comments = ({ article_id, comment_count }) => {
-  const [comments, setComment] = useState([]);
+const Comments = ({ article_id }) => {
+  const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const { isLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
     getComments(article_id).then((data) => {
-      setComment(data);
+      setComments(data);
       setIsLoading(false);
     });
   }, [article_id]);
@@ -27,9 +27,11 @@ const Comments = ({ article_id, comment_count }) => {
   return (
     <>
       <h2 className='comment-count'>
-        Comments <span className='comment-count-span'>{comment_count}</span>
+        Comments <span className='comment-count-span'>{comments.length}</span>
       </h2>
-      <PostComment article_id={article_id} setComment={setComment} />
+      {isLoggedIn.username && (
+        <PostComment article_id={article_id} setComments={setComments} />
+      )}
       {isLoading ? (
         <LoadingButton loading loadingIndicator='Loading...' variant='text'>
           Loading...
@@ -38,14 +40,14 @@ const Comments = ({ article_id, comment_count }) => {
         <ul>
           {comments.map((comment) => {
             return (
-              <div className='comment'>
-                <li key={comment.comment_id}>
+              <div className='comment' key={comment.comment_id}>
+                <li>
                   <CommentsCard comment={comment} />
 
-                  {isLoggedIn.name === comment.author && (
+                  {isLoggedIn.username === comment.author && (
                     <RemoveComment
                       comment_id={comment.comment_id}
-                      setComment={setComment}
+                      setComments={setComments}
                     />
                   )}
                 </li>

@@ -37,10 +37,7 @@ const ArticleById = () => {
           <ArticleVote article_id={article.article_id} vote={article.votes} />
 
           <Expandable>
-            <Comments
-              article_id={article.article_id}
-              comment_count={article.comment_count}
-            />
+            <Comments article_id={article.article_id} />
           </Expandable>
         </>
       )}
