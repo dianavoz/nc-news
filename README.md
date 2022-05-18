@@ -34,7 +34,7 @@ axios
 
 <hr>
 
-### Get Started
+### GET STARTED
 
 CLONE THE REPO
 
