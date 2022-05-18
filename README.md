@@ -17,15 +17,8 @@ Users can also add comments about an article if they are logged in.
 
 ### NC NEWS API used in this project
 
-GitHub 
-
 ```
 https://github.com/dianavoz/news-api
-```
-
-Heroku API
-
-```
 https://api-backend-nc-news.herokuapp.com/api
 ```
 
