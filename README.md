@@ -36,16 +36,16 @@ axios
 
 ### GET STARTED
 
-CLONE THE REPO
-
 ```
 git clone https://github.com/dianavoz/nc-news.git
 cd <my folder>
 ```
 
-INSTALL DEPENDENCIES
-
 ```
 npm install
+```
+
+```
+npm start
 ```
 
