@@ -64,13 +64,8 @@ const NavBar = () => {
 
         {topics.map(({ slug }) => {
           return (
-            <MenuItem onClick={handleClose}>
-              <Link
-                underline='hover'
-                color='inherit'
-                key={slug}
-                href={`/topics/${slug}`}
-              >
+            <MenuItem onClick={handleClose} key={slug}>
+              <Link underline='hover' color='inherit' href={`/topics/${slug}`}>
                 {slug}
               </Link>
             </MenuItem>

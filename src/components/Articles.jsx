@@ -39,7 +39,12 @@ const Articles = () => {
   return (
     <main>
       <h1 className='card-title'>NC News</h1>
-      <Select setSearchParams={setSearchParams} topic={topic} />
+      <Select
+        setSearchParams={setSearchParams}
+        topic={topic}
+        sort={sort}
+        order={order}
+      />
 
       {isLoading ? (
         <LoadingButton loading loadingIndicator='Loading...' variant='text'>

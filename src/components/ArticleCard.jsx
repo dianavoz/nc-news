@@ -11,7 +11,7 @@ const Article = ({ article, article_id }) => {
         lineHeight={1.15}
         textAlign='left'
       >
-        <h2 className='article-card title'>{article.title}</h2>
+        <h2 className='title'>{article.title}</h2>
       </Typography>
 
       <Typography variant='body2' color='text.secondary' textAlign='left'>
@@ -19,12 +19,14 @@ const Article = ({ article, article_id }) => {
           <span style={{ fontWeight: 'bold', marginRight: 3 }}>by</span>
           {article.author}
         </p>
+
         <p>
           <span style={{ color: '#999', fontWeight: 'bold' }}>
-            {article.created_at.slice(0, 10)}{' '}
-            <span className='card-topic'>{article.topic}</span>
+            {article.created_at.slice(0, 10)}
           </span>
+          <span className='card-topic'>{article.topic}</span>
         </p>
+
         {article.body && <p className='text-body'>{article.body}</p>}
         {!article_id && (
           <>
