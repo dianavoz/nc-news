@@ -32,7 +32,12 @@ const NavBar = () => {
   return (
     <nav>
       <Box sx={{ flexGrow: 1 }}>
-        <Link underline='hover' component={Button} href='/'>
+        <Link
+          underline='hover'
+          component={Button}
+          style={{ textDecoration: 'none' }}
+          href='/'
+        >
           <span className='menu'>Log In</span>
         </Link>
 

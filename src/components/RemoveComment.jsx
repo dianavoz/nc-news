@@ -32,10 +32,10 @@ const RemoveComment = ({ comment_id, setComments }) => {
       onClick={() => {
         removeComment(comment_id);
       }}
+      style={{ backgroundColor: '#496175', color: '#dedede' }}
     >
       Delete
     </Button>
   );
 };
 export default RemoveComment;
-////////////////////////////////////////////////
