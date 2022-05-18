@@ -41,7 +41,7 @@ const Comments = ({ article_id }) => {
           {comments.map((comment) => {
             return (
               <div className='comment' key={comment.comment_id}>
-                <li>
+                <li className='comment-item'>
                   <CommentsCard comment={comment} />
 
                   {isLoggedIn.username === comment.author && (

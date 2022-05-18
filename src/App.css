@@ -1,130 +1,126 @@
 * {
 	font-size: 20px;
+	margin:0;
+	padding:0;
+	line-height:1.15;
 }
-
 .App {
 	text-align: center;
+	margin-bottom: 30px;
 }
-
+nav{
+	align-items: right;
+	margin: auto;
+}
+.menu{
+	color: #dedede;
+}
 body {
 	background-color: #e7ebf0;
 }
-
 h2 {
-	font-size: 1.5em;
-	color: #333;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 1.8rem;
+	vertical-align: baseline;
+	text-align: left;
 }
-
 h1 {
-	font-size: 2em;
+	font-size: 3em;
+	margin: 40px;
+	color: #496175
+	;
 }
-
-li {
+p{
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+li{
 	list-style: none;
 }
-
 a {
 	text-decoration: none;
 }
-
 .users-list li {
-	margin-bottom: 60px;
-	;
+	margin: 60px;
 }
-
-header {
-	border-bottom: 1px solid #f8f6f6;
-	display: flex;
-	justify-content: center;
-	padding-bottom: 20px;
-}
-
 .card-form-comment {
 	text-align: right;
 }
-
 .card-form-comment button {
 	margin: 2px;
 }
-
 .vote {
 	text-align: left;
 }
-
 .vote button {
+	margin-top: 20px;
 	border: none;
 	background: none;
 	cursor: pointer;
 }
-
 .comment {
 	margin-bottom: 60px;
 	padding-bottom: 20px;
 	border-bottom: 1px solid #f8f6f6;
 }
-
 .comments-span-by {
 	font-weight: bold;
 }
-
 .comment-count {
 	text-align: left;
 	padding-bottom: 50px;
 }
-
 .comment-count-span {
 	display: inline-block;
 	margin-left: 0.3em;
 	color: #FF0000;
 	font-size: x-large;
 }
-
+.comment-item button{
+	margin-top: 20px;
+}
 .card-form-comment button {
 	cursor: pointer;
 }
-
 .card-topic {
 	display: inline-block;
-	color: #1976d2;
+	color: #496175;
 	font-weight: lighter;
 	padding: 0.15em 0.5em;
 	border-radius: 1em;
-	border: 1px solid #1976d2;
-
+	border: 1px solid #496175;
+   /* #606d78 */
 	margin-left: 1em;
 }
-
+.card-sort,.card-order {
+	color: #999;
+	font-weight: bolder;
+}
+.card-text{
+	text-align: left;
+}
+.card {
+	color:#666;
+	padding: 7px;
+}
+h2.title{
+	color: #545454;
+}
 .select-topic-span {
-
-	color: #999;
+	color: rgb(139, 138, 138);
 	text-transform: uppercase;
-
 	padding: 15px 47px;
-	border: 1px solid #999;
-
+	border: 1px solid #fff;
 }
-
-p.select-topic-p {
-
-	padding-bottom: 8px;
-
-
+.comment-item{
+	text-align: left;
 }
-
-p.select-topic-span {
-	text-align: right;
-}
-
-.card-title {
-	padding: 20px;
-}
-
-.card-sort {
-	color: #999;
-	font-weight: bolder;
-}
-
-.card-order {
-	color: #999;
-	font-weight: bolder;
+.card-form-comment button{
+	border-radius: 6px;
+	padding: 8px 14px;
+	background-color: #dedede;
+	color: #909090;
+	border: none;
 }

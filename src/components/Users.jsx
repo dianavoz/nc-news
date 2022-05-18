@@ -40,6 +40,7 @@ const Users = () => {
                   color='primary'
                   size='small'
                   onClick={() => setIsLoggedIn(user)}
+                  style={{ backgroundColor: '#496175', color: '#dedede' }}
                 >
                   Log me in
                 </Button>

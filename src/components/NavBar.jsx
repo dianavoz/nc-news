@@ -5,8 +5,7 @@ import { getTopicsApi } from '../utils/api';
 import { UserContext } from '../context/User';
 
 //MUI styling
-import { Link, Button, Menu, MenuItem } from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
+import { Link, Button, Menu, MenuItem, Box } from '@mui/material';
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -31,51 +30,61 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div>
-      <Link underline='hover' component={Button} href='/'>
-        <HomeIcon sx={{ mr: 0.5 }} />
-        <span>HOME</span>
-      </Link>
+    <nav>
+      <Box sx={{ flexGrow: 1 }}>
+        <Link
+          underline='hover'
+          component={Button}
+          style={{ textDecoration: 'none' }}
+          href='/'
+        >
+          <span className='menu'>Log In</span>
+        </Link>
 
-      <Button
-        id='basic-button'
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup='true'
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-      >
-        <span>Topics</span>
-      </Button>
+        <Button
+          id='basic-button'
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup='true'
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
+        >
+          <span className='menu'>Topics</span>
+        </Button>
 
-      <Menu
-        id='basic-menu'
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <MenuItem onClick={handleClose}>
-          <Link underline='hover' color='inherit' href='/articles'>
-            All
-          </Link>
-        </MenuItem>
+        <Menu
+          id='basic-menu'
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}
+        >
+          <MenuItem onClick={handleClose}>
+            <Link underline='hover' color='inherit' href='/articles'>
+              All
+            </Link>
+          </MenuItem>
 
-        {topics.map(({ slug }) => {
-          return (
-            <MenuItem onClick={handleClose} key={slug}>
-              <Link underline='hover' color='inherit' href={`/topics/${slug}`}>
-                {slug}
-              </Link>
-            </MenuItem>
-          );
-        })}
-      </Menu>
-      <span style={{ fontSize: 20, color: '#1976D2' }}>
-        {isLoggedIn.username}
-      </span>
-    </div>
+          {topics.map(({ slug }) => {
+            return (
+              <MenuItem onClick={handleClose} key={slug}>
+                <Link
+                  underline='hover'
+                  color='inherit'
+                  href={`/topics/${slug}`}
+                >
+                  {slug}
+                </Link>
+              </MenuItem>
+            );
+          })}
+        </Menu>
+        <span style={{ fontSize: 20, color: '#dedede' }}>
+          {isLoggedIn.username}
+        </span>
+      </Box>
+    </nav>
   );
 };
 

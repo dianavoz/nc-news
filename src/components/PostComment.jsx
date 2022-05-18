@@ -34,7 +34,7 @@ const PostComment = ({ article_id, setComments }) => {
           setNewComment(e.target.value);
         }}
       />
-      <button>Add</button>
+      <button>enter</button>
     </form>
   );
 };

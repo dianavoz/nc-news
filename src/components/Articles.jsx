@@ -7,7 +7,7 @@ import Select from './SelectForm.jsx';
 import ArticleCard from './ArticleCard';
 
 //MUI styling
-import LoadingButton from '@mui/lab/LoadingButton';
+import { LoadingButton } from '@mui/lab';
 import { Grid, Paper } from '@mui/material';
 import { experimentalStyled as styled } from '@mui/material/styles';
 

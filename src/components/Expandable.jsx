@@ -12,7 +12,12 @@ const ComponentChildren = ({ children }) => {
         size='large'
         variant='outlined'
         onClick={toggleOpen}
-        style={{ marginBottom: 20, marginTop: 20 }}
+        style={{
+          marginBottom: 20,
+          marginTop: 20,
+          borderColor: '#496175',
+          color: '#496175',
+        }}
       >
         {showChildren ? 'Hide Comments' : 'Show Comments'}
       </Button>
