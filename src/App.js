@@ -6,6 +6,7 @@ import Articles from './components/Articles';
 import Header from './components/Header';
 import ArticleById from './components/ArticleById';
 import Users from './components/Users';
+import ErrorPage from './components/ErrorPage';
 
 //MUI styling
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -25,13 +26,14 @@ function App() {
         <Header />
         <Container>
           <Routes>
+            <Route path='*' element={<ErrorPage />} />
+            <Route path='/' element={<Users />}></Route>
             <Route path='/articles' element={<Articles />}></Route>
             <Route
               path='/articles/:article_id'
               element={<ArticleById />}
             ></Route>
             <Route path='/topics/:topic' element={<Articles />}></Route>
-            <Route path='/' element={<Users />}></Route>
           </Routes>
         </Container>
       </div>

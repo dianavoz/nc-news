@@ -7,6 +7,7 @@ import { getComments } from '../utils/api';
 import CommentsCard from './CommentsCard';
 import PostComment from './PostComment';
 import RemoveComment from './RemoveComment';
+import ErrorPage from './ErrorPage';
 
 //MUI styling
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -14,15 +15,22 @@ import LoadingButton from '@mui/lab/LoadingButton';
 const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const { isLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
-    getComments(article_id).then((data) => {
-      setComments(data);
-      setIsLoading(false);
-    });
+    getComments(article_id)
+      .then((data) => {
+        setComments(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, [article_id]);
+
+  if (error) return <ErrorPage error={error} />;
 
   return (
     <>

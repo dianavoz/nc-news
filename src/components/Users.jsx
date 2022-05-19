@@ -7,18 +7,26 @@ import { Link } from 'react-router-dom';
 //styling
 import { Button } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
+import ErrorPage from './ErrorPage';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const { setIsLoggedIn } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getUsers().then((usersFromApi) => {
-      setUsers(usersFromApi);
-      setIsLoading(false);
-    });
+    getUsers()
+      .then((usersFromApi) => {
+        setUsers(usersFromApi);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, []);
+
+  if (error) return <ErrorPage error={error} />;
 
   return (
     <section>

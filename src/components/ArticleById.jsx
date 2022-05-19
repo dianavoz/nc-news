@@ -7,6 +7,7 @@ import ArticleCard from './ArticleCard';
 import ArticleVote from './ArticleVote';
 import Comments from './Comments';
 import Expandable from './Expandable';
+import ErrorPage from './ErrorPage';
 
 //MUI styling
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -14,16 +15,23 @@ import LoadingButton from '@mui/lab/LoadingButton';
 const ArticleById = () => {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   //get article id from the url
   const { article_id } = useParams();
 
   useEffect(() => {
-    getArticleById(article_id).then((data) => {
-      setArticle(data);
-      setIsLoading(false);
-    });
+    getArticleById(article_id)
+      .then((data) => {
+        setArticle(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, [article_id]);
+
+  if (error) return <ErrorPage error={error} />;
 
   return (
     <>

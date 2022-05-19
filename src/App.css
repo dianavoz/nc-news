@@ -124,3 +124,7 @@ h2.title{
 	color: #909090;
 	border: none;
 }
+.card-error{
+	margin-top: 50px;
+	color: red
+}
