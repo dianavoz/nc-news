@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { getTopicsApi } from '../utils/api';
+import ErrorPage from './ErrorPage';
 
 //gives access to all the users
 import { UserContext } from '../context/User';
@@ -10,6 +11,7 @@ import { Link, Button, Menu, MenuItem, Box } from '@mui/material';
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const [error, setError] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -24,10 +26,16 @@ const NavBar = () => {
   const { isLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
-    getTopicsApi().then((topic) => {
-      setTopics(topic);
-    });
+    getTopicsApi()
+      .then((topic) => {
+        setTopics(topic);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, []);
+
+  if (error) return <ErrorPage error={error} />;
 
   return (
     <nav>

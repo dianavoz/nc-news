@@ -5,6 +5,7 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { getArticles } from '../utils/api.js';
 import Select from './SelectForm.jsx';
 import ArticleCard from './ArticleCard';
+import ErrorPage from './ErrorPage';
 
 //MUI styling
 import { LoadingButton } from '@mui/lab';
@@ -22,19 +23,27 @@ const Item = styled(Paper)(({ theme }) => ({
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const { topic } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const sort = searchParams.get('sort_by');
   const order = searchParams.get('order');
+  let apiRes = null;
 
   useEffect(() => {
-    getArticles(topic, sort, order).then((data) => {
-      setArticles(data);
-      setIsLoading(false);
-    });
+    getArticles(topic, sort, order)
+      .then((data) => {
+        setArticles(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, [topic, sort, order]);
+
+  if (error) return <ErrorPage error={error} />;
 
   return (
     <main>
