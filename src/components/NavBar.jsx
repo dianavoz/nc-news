@@ -23,7 +23,7 @@ const NavBar = () => {
 
   const [topics, setTopics] = useState([]);
 
-  const { isLoggedIn } = useContext(UserContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
     getTopicsApi()
@@ -48,7 +48,15 @@ const NavBar = () => {
         >
           <span className='menu'>Log In</span>
         </Link>
-
+        /
+        <Link
+          underline='hover'
+          component={Button}
+          style={{ textDecoration: 'none' }}
+          onClick={() => setIsLoggedIn((isLoggedIn.username = ''))}
+        >
+          <span className='menu'>Log Out</span>
+        </Link>
         <Button
           id='basic-button'
           aria-controls={open ? 'basic-menu' : undefined}
@@ -58,7 +66,6 @@ const NavBar = () => {
         >
           <span className='menu'>Topics</span>
         </Button>
-
         <Menu
           id='basic-menu'
           anchorEl={anchorEl}
