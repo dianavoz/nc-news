@@ -12,7 +12,7 @@ const ErrorPage = ({ error }) => {
       </div>
     );
   } else if (error.response.status === 404 || error.response.status === 400) {
-    return <h1 className='card-error'>{error.response.data.msg}</h1>;
+    return <h3 className='card-error'>{error.response.data.msg}</h3>;
   } else {
     return (
       <div className='card-error'>

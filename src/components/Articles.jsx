@@ -30,7 +30,6 @@ const Articles = () => {
 
   const sort = searchParams.get('sort_by');
   const order = searchParams.get('order');
-  let apiRes = null;
 
   useEffect(() => {
     getArticles(topic, sort, order)
