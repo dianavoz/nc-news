@@ -1,7 +1,7 @@
 # NC News 
 
 ### SEE THE APP HERE
- <<<<< To be added >>>>>
+[https://nc-news-frontend-project.netlify.app/](https://nc-news-frontend-project.netlify.app/)
 
  <hr>
 
@@ -17,10 +17,10 @@
 
 ### API USED IN THIS PROJECT
 
-```
-https://github.com/dianavoz/news-api
-https://api-backend-nc-news.herokuapp.com/api
-```
+
+[GitHub Project](https://github.com/dianavoz/news-api) <br>
+[Backend NC News API](https://api-backend-nc-news.herokuapp.com/api)
+
 
 <hr>
 
