@@ -1,5 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
-import { UserContext } from '../context/User';
+import { useEffect, useState } from 'react';
 
 import { getComments } from '../utils/api';
 
@@ -16,8 +15,6 @@ const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const { user } = useContext(UserContext);
 
   useEffect(() => {
     getComments(article_id)
@@ -37,9 +34,9 @@ const Comments = ({ article_id }) => {
       <h2 className='comment-count'>
         Comments <span className='comment-count-span'>{comments.length}</span>
       </h2>
-      {user.username && (
-        <PostComment article_id={article_id} setComments={setComments} />
-      )}
+
+      <PostComment article_id={article_id} setComments={setComments} />
+
       {isLoading ? (
         <LoadingButton loading loadingIndicator='Loading...' variant='text'>
           Loading...
@@ -51,13 +48,11 @@ const Comments = ({ article_id }) => {
               <div className='comment' key={comment.comment_id}>
                 <li className='comment-item'>
                   <CommentsCard comment={comment} />
-
-                  {user.username === comment.author && (
-                    <RemoveComment
-                      comment_id={comment.comment_id}
-                      setComments={setComments}
-                    />
-                  )}
+                  <RemoveComment
+                    comment_id={comment.comment_id}
+                    setComments={setComments}
+                    author={comment.author}
+                  />
                 </li>
               </div>
             );
