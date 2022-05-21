@@ -11,6 +11,9 @@ import { Link, Button, Menu, MenuItem, Box } from '@mui/material';
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const [topics, setTopics] = useState([]);
+  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
+  const [toggle, setToggle] = useState(true);
   const [error, setError] = useState(null);
 
   const handleClick = (event) => {
@@ -20,10 +23,6 @@ const NavBar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const [topics, setTopics] = useState([]);
-
-  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
     getTopicsApi()
@@ -40,23 +39,6 @@ const NavBar = () => {
   return (
     <nav>
       <Box sx={{ flexGrow: 1 }}>
-        <Link
-          underline='hover'
-          component={Button}
-          style={{ textDecoration: 'none' }}
-          href='/'
-        >
-          <span className='menu'>Log In</span>
-        </Link>
-        /
-        <Link
-          underline='hover'
-          component={Button}
-          style={{ textDecoration: 'none' }}
-          onClick={() => setIsLoggedIn((isLoggedIn.username = ''))}
-        >
-          <span className='menu'>Log Out</span>
-        </Link>
         <Button
           id='basic-button'
           aria-controls={open ? 'basic-menu' : undefined}
@@ -95,6 +77,27 @@ const NavBar = () => {
             );
           })}
         </Menu>
+        {toggle ? (
+          <Link
+            underline='hover'
+            component={Button}
+            style={{ textDecoration: 'none' }}
+            onClick={() =>
+              setIsLoggedIn({ username: 'tickle122' }) & setToggle(false)
+            }
+          >
+            <span className='menu'>Login</span>
+          </Link>
+        ) : (
+          <Link
+            underline='hover'
+            component={Button}
+            style={{ textDecoration: 'none' }}
+            onClick={() => setIsLoggedIn({}) & setToggle(true)}
+          >
+            <span className='menu'>Logout</span>
+          </Link>
+        )}
         <span style={{ fontSize: 20, color: '#dedede' }}>
           {isLoggedIn.username}
         </span>
