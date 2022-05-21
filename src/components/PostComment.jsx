@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { toast } from 'react-toastify';
 
 import { UserContext } from '../context/User';
 import { postComment } from '../utils/api';
@@ -12,14 +13,17 @@ const PostComment = ({ article_id, setComments }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    postComment(article_id, newComment, user).then((postedComment) => {
-      setComments((currentComments) => {
-        return [postedComment, ...currentComments];
+    if (user.username) {
+      postComment(article_id, newComment, user).then((postedComment) => {
+        setComments((currentComments) => {
+          return [postedComment, ...currentComments];
+        });
       });
-    });
 
-    setNewComment('');
+      setNewComment('');
+    } else {
+      toast.warning('You must be logged in to comment', { theme: 'light' });
+    }
   };
 
   return (

@@ -11,6 +11,8 @@ import ErrorPage from './components/ErrorPage';
 //MUI styling
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { Container } from '@mui/material';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //font family in MUI
 const theme = createTheme({
@@ -36,6 +38,7 @@ function App() {
             <Route path='/topics/:topic' element={<Articles />}></Route>
           </Routes>
         </Container>
+        <ToastContainer closeOnClick pauseOnHover />
       </div>
     </ThemeProvider>
   );
