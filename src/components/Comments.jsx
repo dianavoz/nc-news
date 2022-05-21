@@ -17,7 +17,7 @@ const Comments = ({ article_id }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { isLoggedIn } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     getComments(article_id)
@@ -37,7 +37,7 @@ const Comments = ({ article_id }) => {
       <h2 className='comment-count'>
         Comments <span className='comment-count-span'>{comments.length}</span>
       </h2>
-      {isLoggedIn.username && (
+      {user.username && (
         <PostComment article_id={article_id} setComments={setComments} />
       )}
       {isLoading ? (
@@ -52,7 +52,7 @@ const Comments = ({ article_id }) => {
                 <li className='comment-item'>
                   <CommentsCard comment={comment} />
 
-                  {isLoggedIn.username === comment.author && (
+                  {user.username === comment.author && (
                     <RemoveComment
                       comment_id={comment.comment_id}
                       setComments={setComments}

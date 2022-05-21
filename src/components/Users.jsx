@@ -11,7 +11,7 @@ import ErrorPage from './ErrorPage';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const { setIsLoggedIn } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -47,7 +47,7 @@ const Users = () => {
                   variant='contained'
                   color='primary'
                   size='small'
-                  onClick={() => setIsLoggedIn(user)}
+                  onClick={() => setUser(user)}
                   style={{ backgroundColor: '#496175', color: '#dedede' }}
                 >
                   Log me in

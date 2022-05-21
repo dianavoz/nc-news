@@ -12,7 +12,7 @@ const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [topics, setTopics] = useState([]);
-  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [toggle, setToggle] = useState(true);
   const [error, setError] = useState(null);
 
@@ -78,29 +78,23 @@ const NavBar = () => {
           })}
         </Menu>
         {toggle ? (
-          <Link
-            underline='hover'
-            component={Button}
-            style={{ textDecoration: 'none' }}
+          <Button
+            id='basic-button'
             onClick={() =>
-              setIsLoggedIn({ username: 'tickle122' }) & setToggle(false)
+              setUser({ username: 'tickle122' }) & setToggle(!toggle)
             }
           >
             <span className='menu'>Login</span>
-          </Link>
+          </Button>
         ) : (
-          <Link
-            underline='hover'
-            component={Button}
-            style={{ textDecoration: 'none' }}
-            onClick={() => setIsLoggedIn({}) & setToggle(true)}
+          <Button
+            id='basic-button'
+            onClick={() => setUser({}) & setToggle(!toggle)}
           >
             <span className='menu'>Logout</span>
-          </Link>
+          </Button>
         )}
-        <span style={{ fontSize: 20, color: '#dedede' }}>
-          {isLoggedIn.username}
-        </span>
+        <span style={{ fontSize: 20, color: '#dedede' }}>{user.username}</span>
       </Box>
     </nav>
   );
