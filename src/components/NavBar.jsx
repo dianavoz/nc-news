@@ -7,6 +7,7 @@ import { UserContext } from '../context/User';
 
 //MUI styling
 import { Link, Button, Menu, MenuItem, Box } from '@mui/material';
+import { Home } from '@mui/icons-material';
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -24,6 +25,8 @@ const NavBar = () => {
     setAnchorEl(null);
   };
 
+  // const randomUsername = users[Math.floor(Math.random() * users.length)];
+
   useEffect(() => {
     getTopicsApi()
       .then((topic) => {
@@ -39,6 +42,17 @@ const NavBar = () => {
   return (
     <nav>
       <Box sx={{ flexGrow: 1 }}>
+        <Link underline='hover' component={Button} color='inherit' href='/'>
+          <Home sx={{ mr: 0.5 }} />
+        </Link>
+        <Link
+          underline='hover'
+          component={Button}
+          color='inherit'
+          href='/users'
+        >
+          <span className='menu'>Users</span>
+        </Link>
         <Button
           id='basic-button'
           aria-controls={open ? 'basic-menu' : undefined}
@@ -94,7 +108,7 @@ const NavBar = () => {
             <span className='menu'>Logout</span>
           </Button>
         )}
-        <span style={{ fontSize: 20, color: '#dedede' }}>{user.username}</span>
+        <span style={{ fontSize: 20, color: '#fff' }}>{user.username}</span>
       </Box>
     </nav>
   );
