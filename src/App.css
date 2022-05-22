@@ -13,7 +13,7 @@ nav{
 	margin: auto;
 }
 .menu{
-	color: #dedede;
+	color: #fff;
 }
 body {
 	background-color: #e7ebf0;
@@ -29,8 +29,7 @@ h2 {
 h1 {
 	font-size: 3em;
 	margin: 40px;
-	color: #496175
-	;
+	color: #000;
 }
 p{
 	margin-bottom: 10px;
@@ -135,3 +134,37 @@ h2.title{
 	padding-bottom: 15px;
 }
 
+.home-main{
+	display: flex;
+	flex-direction: column;
+
+}
+
+h1.text-title{
+	margin-top: 3.5rem;
+	letter-spacing: 0.1em;
+	font-size: 1.5rem;
+}
+
+
+@media only screen and (min-width: 768px) {
+	img.news-img{
+		height: 600px;
+		width: 600px;
+		margin: auto;
+	}
+	p.text-content{
+		letter-spacing: 0.025em;
+		line-height: 1.625;
+		font-size: 1.8rem;
+		font-weight: 300;
+		text-align: center;
+	}
+
+h1.text-title{
+	margin-top: 3.5rem;
+	letter-spacing: 0.1em;
+	font-size: 3rem;
+}
+
+  }

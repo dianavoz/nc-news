@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className='news-header'>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position='static' style={{ backgroundColor: '#687987' }}>
+        <AppBar position='static' style={{ backgroundColor: '#9EABB1' }}>
           <Toolbar>
             <NavBar />
           </Toolbar>

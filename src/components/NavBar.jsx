@@ -7,12 +7,13 @@ import { UserContext } from '../context/User';
 
 //MUI styling
 import { Link, Button, Menu, MenuItem, Box } from '@mui/material';
+import { Home } from '@mui/icons-material';
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [topics, setTopics] = useState([]);
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, users } = useContext(UserContext);
   const [toggle, setToggle] = useState(true);
   const [error, setError] = useState(null);
 
@@ -23,6 +24,8 @@ const NavBar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const randomUsername = users[Math.floor(Math.random() * users.length)];
 
   useEffect(() => {
     getTopicsApi()
@@ -39,13 +42,13 @@ const NavBar = () => {
   return (
     <nav>
       <Box sx={{ flexGrow: 1 }}>
-        <Button
-          id='basic-button'
-          aria-controls={open ? 'basic-menu' : undefined}
-          aria-haspopup='true'
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleClick}
-        >
+        <Link underline='hover' component={Button} color='inherit' href='/'>
+          <Home sx={{ mr: 0.5 }} />
+        </Link>
+        <Link underline='none' component={Button} color='inherit' href='/users'>
+          <span className='menu'>Users</span>
+        </Link>
+        <Button id='basic-button' onClick={handleClick}>
           <span className='menu'>Topics</span>
         </Button>
         <Menu
@@ -53,9 +56,6 @@ const NavBar = () => {
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
-          MenuListProps={{
-            'aria-labelledby': 'basic-button',
-          }}
         >
           <MenuItem onClick={handleClose}>
             <Link underline='hover' color='inherit' href='/articles'>
@@ -79,22 +79,19 @@ const NavBar = () => {
         </Menu>
         {toggle ? (
           <Button
-            id='basic-button'
             onClick={() =>
-              setUser({ username: 'tickle122' }) & setToggle(!toggle)
+              setUser({ username: `${randomUsername.username}` }) &
+              setToggle(!toggle)
             }
           >
             <span className='menu'>Login</span>
           </Button>
         ) : (
-          <Button
-            id='basic-button'
-            onClick={() => setUser({}) & setToggle(!toggle)}
-          >
+          <Button onClick={() => setUser({}) & setToggle(!toggle)}>
             <span className='menu'>Logout</span>
           </Button>
         )}
-        <span style={{ fontSize: 20, color: '#dedede' }}>{user.username}</span>
+        <span style={{ fontSize: 20, color: '#fff' }}>{user.username}</span>
       </Box>
     </nav>
   );
