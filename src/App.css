@@ -134,9 +134,6 @@ h2.title{
 	padding-bottom: 15px;
 }
 
-
-
-
 .home-main{
 	display: flex;
 	flex-direction: column;
@@ -148,7 +145,6 @@ h1.text-title{
 	letter-spacing: 0.1em;
 	font-size: 1.5rem;
 }
-
 
 
 @media only screen and (min-width: 768px) {
