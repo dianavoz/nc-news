@@ -21,7 +21,14 @@ const NavBar = () => {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position='static' style={{ backgroundColor: '#9EABB1' }}>
           <Toolbar>
-            <Box sx={{ flexGrow: 1 }}>
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+              <Link to='/articles'>
+                <h2 className='logo' style={{ color: '#6e6562' }}>
+                  NC News
+                </h2>
+              </Link>
+            </Box>
+            <Box sx={{ flexGrow: 1, textAlign: { xs: 'center', sm: 'right' } }}>
               <Button color='inherit'>
                 <Link to='/'>
                   <Home sx={{ mr: 0.5 }} style={{ color: '#fff' }} />
