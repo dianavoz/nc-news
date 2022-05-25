@@ -14,6 +14,7 @@ import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { Container } from '@mui/material';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NavBar from './components/NavBar';
 
 //font family in MUI
 const theme = createTheme({
@@ -26,6 +27,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className='App'>
+        <NavBar />
         <Header />
         <Container>
           <Routes>

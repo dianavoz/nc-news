@@ -1,97 +1,62 @@
-import { useEffect, useState, useContext } from 'react';
-import { getTopicsApi } from '../utils/api';
-import ErrorPage from './ErrorPage';
+import { useState, useContext } from 'react';
+
+import { Link } from 'react-router-dom';
 
 //gives access to all the users
 import { UserContext } from '../context/User';
 
 //MUI styling
-import { Link, Button, Menu, MenuItem, Box } from '@mui/material';
+import { Button, Box, Toolbar, AppBar } from '@mui/material';
 import { Home } from '@mui/icons-material';
+import Topics from './Topics';
 
 const NavBar = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const [topics, setTopics] = useState([]);
   const { user, setUser, users } = useContext(UserContext);
   const [toggle, setToggle] = useState(true);
-  const [error, setError] = useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   const randomUsername = users[Math.floor(Math.random() * users.length)];
 
-  useEffect(() => {
-    getTopicsApi()
-      .then((topic) => {
-        setTopics(topic);
-      })
-      .catch((err) => {
-        setError(err);
-      });
-  }, []);
-
-  if (error) return <ErrorPage error={error} />;
-
   return (
-    <nav>
+    <nav className='news-header'>
       <Box sx={{ flexGrow: 1 }}>
-        <Link underline='hover' component={Button} color='inherit' href='/'>
-          <Home sx={{ mr: 0.5 }} />
-        </Link>
-        <Link underline='none' component={Button} color='inherit' href='/users'>
-          <span className='menu'>Users</span>
-        </Link>
-        <Button id='basic-button' onClick={handleClick}>
-          <span className='menu'>Topics</span>
-        </Button>
-        <Menu
-          id='basic-menu'
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-        >
-          <MenuItem onClick={handleClose}>
-            <Link underline='hover' color='inherit' href='/articles'>
-              All
-            </Link>
-          </MenuItem>
-
-          {topics.map(({ slug }) => {
-            return (
-              <MenuItem onClick={handleClose} key={slug}>
-                <Link
-                  underline='hover'
-                  color='inherit'
-                  href={`/topics/${slug}`}
-                >
-                  {slug}
+        <AppBar position='static' style={{ backgroundColor: '#9EABB1' }}>
+          <Toolbar>
+            <Box sx={{ flexGrow: 1 }}>
+              <Button color='inherit'>
+                <Link to='/'>
+                  <Home sx={{ mr: 0.5 }} style={{ color: '#fff' }} />
                 </Link>
-              </MenuItem>
-            );
-          })}
-        </Menu>
-        {toggle ? (
-          <Button
-            onClick={() =>
-              setUser({ username: `${randomUsername.username}` }) &
-              setToggle(!toggle)
-            }
-          >
-            <span className='menu'>Login</span>
-          </Button>
-        ) : (
-          <Button onClick={() => setUser({}) & setToggle(!toggle)}>
-            <span className='menu'>Logout</span>
-          </Button>
-        )}
-        <span style={{ fontSize: 20, color: '#fff' }}>{user.username}</span>
+              </Button>
+              <Button color='inherit'>
+                <Link to='/users'>
+                  <span className='menu'>Users</span>
+                </Link>
+              </Button>
+              <Topics />
+              {toggle ? (
+                <Button
+                  color='inherit'
+                  onClick={() =>
+                    setUser({ username: `${randomUsername.username}` }) &
+                    setToggle(!toggle)
+                  }
+                >
+                  <span className='menu'>Login</span>
+                </Button>
+              ) : (
+                <Button
+                  color='inherit'
+                  onClick={() => setUser({}) & setToggle(!toggle)}
+                >
+                  <span className='menu'>Logout</span>
+                </Button>
+              )}
+              <span style={{ fontSize: 20, color: '#fff' }}>
+                {user.username}
+              </span>
+            </Box>
+          </Toolbar>
+        </AppBar>
       </Box>
     </nav>
   );
