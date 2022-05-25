@@ -3,7 +3,6 @@ import './App.css';
 
 //components
 import Articles from './components/Articles';
-import Header from './components/Header';
 import ArticleById from './components/ArticleById';
 import Users from './components/Users';
 import ErrorPage from './components/ErrorPage';
@@ -28,7 +27,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className='App'>
         <NavBar />
-        <Header />
         <Container>
           <Routes>
             <Route path='*' element={<ErrorPage />} />

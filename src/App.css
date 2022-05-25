@@ -116,6 +116,9 @@ h2.title{
 .comment-item{
 	text-align: left;
 }
+.card-select{
+	margin-top: 50px;
+}
 .card-form-comment button{
 	border-radius: 6px;
 	padding: 8px 14px;
@@ -166,5 +169,4 @@ h1.text-title{
 	letter-spacing: 0.1em;
 	font-size: 3rem;
 }
-
   }
