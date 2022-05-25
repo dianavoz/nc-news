@@ -1,16 +1,11 @@
-import NavBar from './NavBar';
-import { Toolbar, AppBar, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <header className='news-header'>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position='static' style={{ backgroundColor: '#9EABB1' }}>
-          <Toolbar>
-            <NavBar />
-          </Toolbar>
-        </AppBar>
-      </Box>
+      <Link to='/articles'>
+        <h1 className='card-title'>NC News</h1>
+      </Link>
     </header>
   );
 };

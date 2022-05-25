@@ -46,9 +46,6 @@ const Articles = () => {
 
   return (
     <main>
-      <Link to='/articles'>
-        <h1 className='card-title'>NC News</h1>
-      </Link>
       <Select
         setSearchParams={setSearchParams}
         topic={topic}
